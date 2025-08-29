@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Arañas.cpp" />
+    <ClCompile Include="Aranas.cpp" />
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="Lab#6P3_GabrielBaquis.cpp" />
     <ClCompile Include="Mantis.cpp" />
@@ -131,7 +131,7 @@
     <ClCompile Include="Ronda.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arañas.h" />
+    <ClInclude Include="Aranas.h" />
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Mantis.h" />
     <ClInclude Include="Recipientes.h" />

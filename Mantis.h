@@ -6,5 +6,6 @@ class Mantis : public Entidad{
 	int honor = 0;
 public:
 	Mantis(int, int, int , int);
+	string to_String() override;
 };
 

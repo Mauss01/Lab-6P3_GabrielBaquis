@@ -3,3 +3,7 @@ Recipientes::Recipientes(int poderAbismal, string tipoArma, int vida) : Entidad(
 	this->poderAbismal = poderAbismal;
 	this->tipoArma = tipoArma;
 }
+
+string Recipientes::to_String() {
+	return "Recipientes";
+}

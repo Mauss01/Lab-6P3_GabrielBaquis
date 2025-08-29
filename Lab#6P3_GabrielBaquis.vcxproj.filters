@@ -21,7 +21,7 @@
     <ClCompile Include="Entidad.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Arañas.cpp">
+    <ClCompile Include="Aranas.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Mantis.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="Entidad.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Arañas.h">
+    <ClInclude Include="Aranas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Mantis.h">

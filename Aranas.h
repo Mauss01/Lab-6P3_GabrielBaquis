@@ -1,9 +1,10 @@
 #pragma once
 #include "Entidad.h"
-class Arañas : public Entidad{
+class Aranas : public Entidad{
 	int numeroPatas = 0;
 	bool esVenenosa = false;
 public:
-	Arañas(int, bool, int);
+	Aranas(int, bool, int);
+	string to_String() override;
 };
 

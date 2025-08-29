@@ -5,5 +5,6 @@ class Recipientes : public Entidad{
 	string tipoArma = " ";
 public:
 	Recipientes(int, string, int);
+	string to_String() override;
 };
 
