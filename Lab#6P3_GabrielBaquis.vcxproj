@@ -128,7 +128,6 @@
     <ClCompile Include="Lab#6P3_GabrielBaquis.cpp" />
     <ClCompile Include="Mantis.cpp" />
     <ClCompile Include="Recipientes.cpp" />
-    <ClCompile Include="Ronda.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aranas.h" />

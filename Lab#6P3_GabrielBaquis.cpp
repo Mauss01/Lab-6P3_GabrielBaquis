@@ -3,6 +3,31 @@
 #include "Mantis.h"
 #include "Recipientes.h"
 #include <iostream>
+void Hornet(vector<Entidad*>& listaEntidades) {	
+	Ronda<Entidad>enemigo;
+	int opcion = 0;
+	cout << "\n--- Seleccion Dificultad ---\n\n";
+	cout << "1. Prueba del Guerrrero\n";
+	cout << "2. Prueba de Supervivencia\n";
+	cout << "3. Prueba del Campeon\n";
+
+	switch (opcion) {
+	case 1:		
+		enemigo.insertar(*listaEntidades[0]);	
+		break;
+	case 2:
+		for (int i = 0; i < listaEntidades.size() / 2; i++) {
+			enemigo.insertar(*listaEntidades[i]);
+		}
+		break;
+	case 3:
+		for (int i = 0; i < listaEntidades.size(); i++) {
+			enemigo.insertar(*listaEntidades[i]);
+		}
+		break;
+	}
+}
+
 void listado(vector<Entidad*>& listaEntidades) {
 	cout << "\n--- Entidades ---\n\n"; int posicion = 0;
 	for (int i = 0; i < listaEntidades.size(); i++){
@@ -10,16 +35,17 @@ void listado(vector<Entidad*>& listaEntidades) {
 	}
 
 	cout << "Ingrese que Entidad desea eliminar: "; cin >> posicion;
-	cout << "Eliminado- " << listaEntidades[posicion]->tipo();
-	listaEntidades.erase(listaEntidades.begin() + posicion);
-	//listaEntidades.erase(listaEntidades.begin() + posicion, listaEntidades.end() - posicion);
+	if (posicion > 0 && posicion <= listaEntidades.size()){
+		cout << "Eliminado- " << listaEntidades[posicion]->tipo() << endl << endl;
+		listaEntidades.erase(listaEntidades.begin() + posicion);
+	}		
 }
 
 void entidades(vector<Entidad*>& listaEntidades) {
 	if (!listaEntidades.empty()){
 		cout << "\n--- Entidades ---\n\n";
 		for (int indice = 0; indice < 1; indice++) {
-
+			 //for para identificar con condicional especifico
 			for (int i = 0; i < listaEntidades.size(); i++) {
 				if (listaEntidades[i]->tipo() == "Recipientes") { listaEntidades[i]->to_String(); }
 			}
@@ -58,7 +84,7 @@ void menuEntidades(vector<Entidad*>& listaEntidades) {
 					cout << "Tipo de Arma de Recipientes: \n.-Aguja\n.-Clavo\n.-Abismo\n"; cin >> tipoArma;
 				
 					if (tipoArma == "Aguja" || tipoArma == "Clavo" || tipoArma == "Abismo") {
-						entidad = new Recipientes(poderAbismal,tipoArma, vida);
+						entidad = new Recipientes(poderAbismal,tipoArma, vida); //llamado de herencia usando solamente el Padre
 						listaEntidades.push_back(entidad); cout << "Recipientes creado con exito!!\n\n";
 
 					}else {
@@ -156,6 +182,7 @@ void menu(vector<Entidad*> &listaEntidades) {
 			menu(listaEntidades);
 			break;
 		case 4:
+			Hornet(listaEntidades);
 			menu(listaEntidades);
 			break;
 		case 5:			
