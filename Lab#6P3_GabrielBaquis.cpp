@@ -3,6 +3,47 @@
 #include "Mantis.h"
 #include "Recipientes.h"
 #include <iostream>
+void accion(Entidad*nti, Ronda<Entidad>&enemigo) {
+	int opcion = 0; bool envenenado = false; int tipo = 0;
+		
+	do{
+		cout << "--- Coliseo ---\n";
+		cout << "\n1. Atacar\n";
+		cout << "\n2. Esquivar\n";
+		cout << "Seleccione una opcion: "; cin >> opcion;
+
+		switch (opcion) {
+		case 1:
+			nti->restarVida(25);
+			break;
+		case 2:
+			if (envenenado){
+				enemigo.restar();
+			}
+			break;
+		default: cout << "Opcion invalida";
+			break;
+		}
+		if (nti->tipo() == "Aranas") {
+			tipo = 1;
+		}
+		else if (nti->tipo() == "Recipientes") {
+			tipo = 1;
+		}else {
+			tipo = 3;
+		}
+
+		switch (tipo) {
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		}
+
+	} while (enemigo.getVida() <= 0 || nti->getVida() <= 0);
+}
 void Hornet(vector<Entidad*>& listaEntidades) {	
 	Ronda<Entidad>enemigo;
 	int opcion = 0;
@@ -13,17 +54,21 @@ void Hornet(vector<Entidad*>& listaEntidades) {
 
 	switch (opcion) {
 	case 1:		
-		enemigo.insertar(*listaEntidades[0]);	
+		enemigo.insertar(*listaEntidades[0]);
+		accion(listaEntidades[0], enemigo);
 		break;
 	case 2:
 		for (int i = 0; i < listaEntidades.size() / 2; i++) {
 			enemigo.insertar(*listaEntidades[i]);
-		}
+			accion(listaEntidades[i], enemigo);
+		}		
 		break;
 	case 3:
 		for (int i = 0; i < listaEntidades.size(); i++) {
 			enemigo.insertar(*listaEntidades[i]);
+			accion(listaEntidades[i], enemigo);
 		}
+		
 		break;
 	}
 }

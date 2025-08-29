@@ -16,8 +16,21 @@ public:
 	void insertar(const T& entidad) {
 		enemigo.push_back(entidad);
 	}
-	void batalla() {
+	
+	int getVida() {
+		return HP;
+	}
+	
+	void iD(int ronda) {
+		id = ronda;
+	}	
 
+	void extraer() {
+		enemigo.pop_front();
+	}
+	
+	size_t size() const {
+		return enemigo.size();
 	}
 };
 

@@ -13,5 +13,6 @@ public:
 	virtual void to_String(); //para modificar el metodo en cada Hijo
 	virtual string tipo();
 	int getVida();
+	void restarVida(int);
 };
 
