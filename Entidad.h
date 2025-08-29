@@ -9,7 +9,8 @@ class Entidad{
 public:
 	Entidad(int);
 	~Entidad();
-	virtual string to_String();
+	virtual void to_String();
+	virtual string tipo();
 	int getVida();
 };
 

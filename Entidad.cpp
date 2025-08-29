@@ -5,7 +5,9 @@ Entidad::Entidad(int vida) {
 	this->vida = vida;
 }
 
-string Entidad::to_String() { return ""; }
+void Entidad::to_String() {}
+
+string Entidad::tipo() { return " "; }
 
 int Entidad::getVida() {
 	return vida;

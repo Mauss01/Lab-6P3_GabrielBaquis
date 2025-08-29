@@ -4,6 +4,10 @@ Recipientes::Recipientes(int poderAbismal, string tipoArma, int vida) : Entidad(
 	this->tipoArma = tipoArma;
 }
 
-string Recipientes::to_String() {
+string Recipientes::tipo() {
 	return "Recipientes";
+}
+
+void Recipientes::to_String() {
+	cout << ".- Recipientes >>> Poder Abismal: " << poderAbismal << " | Tipo de Arma: " << tipoArma << " | Vida: " << Entidad::getVida() << endl;
 }

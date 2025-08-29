@@ -4,6 +4,9 @@ Aranas::Aranas(int numeroPatas, bool esVenenosa, int vida) : Entidad(vida) {
 	this->numeroPatas = numeroPatas;	
 }
 
-string Aranas::to_String() {
-	return "Aranas";
+string Aranas::tipo() {
+	return "Arana";
+}
+void Aranas::to_String() {
+	cout << ".- Arana >>> Numero de Patas: " << numeroPatas << " | Venenosa: " << (esVenenosa = true ? "Si" : "No") << " | Vida: " << Entidad::getVida() << endl;	
 }

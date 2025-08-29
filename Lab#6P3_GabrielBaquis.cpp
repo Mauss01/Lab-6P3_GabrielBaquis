@@ -3,13 +3,38 @@
 #include "Mantis.h"
 #include "Recipientes.h"
 #include <iostream>
+void listado(vector<Entidad*>& listaEntidades) {
+	cout << "\n--- Entidades ---\n\n"; int posicion = 0;
+	for (int i = 0; i < listaEntidades.size(); i++){
+		cout << i; listaEntidades[i]->to_String();
+	}
+
+	cout << "Ingrese que Entidad desea eliminar: "; cin >> posicion;
+	cout << "Eliminado- " << listaEntidades[posicion]->tipo();
+	listaEntidades.erase(listaEntidades.begin() + posicion);
+	//listaEntidades.erase(listaEntidades.begin() + posicion, listaEntidades.end() - posicion);
+}
 
 void entidades(vector<Entidad*>& listaEntidades) {
-	for (int indice = 0; indice < 1; indice++){
-		for (int i = 0; i < listaEntidades.size(); i++){
-			if(listaEntidades[i]->to_String() == "Recipientes") {}
+	if (!listaEntidades.empty()){
+		cout << "\n--- Entidades ---\n\n";
+		for (int indice = 0; indice < 1; indice++) {
+
+			for (int i = 0; i < listaEntidades.size(); i++) {
+				if (listaEntidades[i]->tipo() == "Recipientes") { listaEntidades[i]->to_String(); }
+			}
+
+			for (int j = 0; j < listaEntidades.size(); j++) {
+				if (listaEntidades[j]->tipo() == "Arana") { listaEntidades[j]->to_String(); }
+			}
+
+			for (int l = 0; l < listaEntidades.size(); l++) {
+				if (listaEntidades[l]->tipo() == "Mantis") { listaEntidades[l]->to_String(); }
+			}
 		}
-	}
+	}	
+
+	cout << endl << endl;
 }
 
 void menuEntidades(vector<Entidad*>& listaEntidades) {
@@ -48,7 +73,7 @@ void menuEntidades(vector<Entidad*>& listaEntidades) {
 			break;
 
 		case 2:
-			cout << "Vida de Arana: "; cin >> vida;
+			cout << "Vida de Arana (max HP: 3000): "; cin >> vida;
 			if (vida > 0 && vida <= 3000) {
 				cout << "Numero de Patas de Arana: "; cin >> numPatas;
 				cout << "Es venenosa Arana (s/n)?"; cin >> vene;
@@ -72,15 +97,15 @@ void menuEntidades(vector<Entidad*>& listaEntidades) {
 			break;
 
 		case 3:
-			cout << "Ingrese cuanta tiene de vida Recipientes: "; cin >> vida;
+			cout << "Vida de Mantis (max HP: 3000): "; cin >> vida;
 			if (vida > 0 && vida <= 3000) {
-				cout << "Precision de Mantis: "; cin >> precision;
+				cout << "Precision de Mantis (1-3): "; cin >> precision;
 
 				if (precision >= 1 && precision <= 3){
-					cout << "Filo de Mantis: "; cin >> filo;
+					cout << "Filo de Mantis (1-9): "; cin >> filo;
 
 					if (filo >= 1 && filo <= 9){
-						cout << "Honor de Mantis: "; cin >> honor;
+						cout << "Honor de Mantis (1-3): "; cin >> honor;
 
 						if (honor >= 1 && honor <= 3){
 							entidad = new Mantis(precision, filo, honor, vida); cout << "Mantis creado con exito!!\n\n";
@@ -127,6 +152,7 @@ void menu(vector<Entidad*> &listaEntidades) {
 			menu(listaEntidades);
 			break;
 		case 3:
+			listado(listaEntidades);
 			menu(listaEntidades);
 			break;
 		case 4:

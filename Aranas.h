@@ -5,6 +5,7 @@ class Aranas : public Entidad{
 	bool esVenenosa = false;
 public:
 	Aranas(int, bool, int);
-	string to_String() override;
+	void to_String() override;
+	string tipo() override;
 };
 
